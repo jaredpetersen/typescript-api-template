@@ -1,35 +1,29 @@
 'use strict';
 
-import { expect } from 'chai'
 import * as health from './index';
 import { Request, Response, NextFunction } from 'express';
-import 'mocha';
 
 describe('Health - UT', () => {
 
   describe('status()', () => {
 
-    it('provides health status', (done) => {
+    test('provides health status', () => {
       // Stub req
-      const reqStub: Request = null;
+      const reqStub: Partial<Request> = {};
 
       // Mock res
       const resMock: Partial<Response> = {};
-      resMock.status = (code: number) => {
-        expect(code).to.equal(200);
-        return <Response>resMock;
-      };
-      resMock.json = (body?: any) => {
-        expect(body).to.deep.equal({ status: 'UP' });
-        done();
-        return this;
-      };
+      resMock.status = jest.fn().mockReturnValue(resMock);
+      resMock.json = jest.fn().mockReturnValue(resMock);
 
       // Stub next
-      const nextStub: NextFunction = null;
+      const nextStub: NextFunction = () => {};
 
       // Run unit under test
-      health.status(reqStub, <Response>resMock, nextStub);
+      health.status(<Request>reqStub, <Response>resMock, nextStub);
+
+      expect(resMock.status).toHaveBeenCalledWith(200);
+      expect(resMock.json).toHaveBeenCalledWith({ status: 'UP' });
     });
   });
 
