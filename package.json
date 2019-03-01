@@ -13,13 +13,18 @@
   },
   "author": "Jared Petersen <jaredtoddpetersen@gmail.com> (https://github.com/jaredpetersen)",
   "license": "MIT",
+  "ts-jest": {
+    "skipBabel": false
+  },
   "jest": {
+    "testEnvironment": "node",
     "preset": "ts-jest",
     "testRegex": "(/__tests__/.*|(\\.|/)(test-ut|test-it))\\.[jt]sx?$",
     "collectCoverageFrom": [
       "src/**/*.{ts,js}",
       "!<rootDir>/node_modules/",
       "!src/server.ts",
+      "!src/app.ts",
       "!src/routes.ts",
       "!src/logger.ts",
       "!src/config.ts"
