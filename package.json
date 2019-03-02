@@ -13,9 +13,6 @@
   },
   "author": "Jared Petersen <jaredtoddpetersen@gmail.com> (https://github.com/jaredpetersen)",
   "license": "MIT",
-  "ts-jest": {
-    "skipBabel": false
-  },
   "jest": {
     "testEnvironment": "node",
     "preset": "ts-jest",
