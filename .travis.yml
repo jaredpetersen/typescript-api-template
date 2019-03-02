@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "node"
+  - "lts/*"
+install:
+  - npm ci
+  - npm run coverage
+  - npm run build
+branches:
+  only:
+    master

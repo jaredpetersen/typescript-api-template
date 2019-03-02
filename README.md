@@ -13,7 +13,7 @@ Simple template for creating a TypeScript REST API
 ```
 npm install
 npm test
-npm run test-coverage
+npm run coverage
 npm run build
 npm start
 ```

@@ -17,8 +17,8 @@ router.use('/health', healthRouter);
 router.use('/tasks', taskRouter);
 
 // Wire up error-handling middleware
-router.use(errors.errorHandler);
-router.use(errors.nullRoute);
+router.use(errors.errorMiddleware);
+router.use(errors.nullMiddleware);
 
 // Export the router
 export default router;

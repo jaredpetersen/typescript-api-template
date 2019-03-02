@@ -8,10 +8,33 @@
   "scripts": {
     "start": "node ./dist/server.js",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose",
+    "coverage": "jest --coverage"
   },
   "author": "Jared Petersen <jaredtoddpetersen@gmail.com> (https://github.com/jaredpetersen)",
   "license": "MIT",
+  "jest": {
+    "rootDir": "src",
+    "testEnvironment": "node",
+    "preset": "ts-jest",
+    "restoreMocks": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test-ut|test-it))\\.[jt]sx?$",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,js}",
+      "!<rootDir>/node_modules/",
+      "!src/server.ts",
+      "!src/app.ts",
+      "!src/routes.ts",
+      "!src/logger.ts",
+      "!src/config.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "html",
+      "text"
+    ]
+  },
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1",
@@ -19,8 +42,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.9",
     "@types/morgan": "^1.7.35",
-    "@types/node": "^11.9.4",
-    "typescript": "^3.3.3"
+    "@types/node": "^11.10.4",
+    "@types/supertest": "^2.0.7",
+    "jest": "^24.1.0",
+    "supertest": "^3.4.2",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
   }
 }

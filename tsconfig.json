@@ -1,18 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "sourceMap": true,
-    "noImplicitAny": true,
+    "target": "es6",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es5",
-    "lib": [ "dom", "es6" ],
-    "downlevelIteration": true
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "strict": true,
+    "esModuleInterop": true
+  }
 }
