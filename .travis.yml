@@ -3,5 +3,6 @@ node_js:
   - "node"
   - "lts/*"
 install:
+  - npm ci
   - npm run build
   - npm run coverage
