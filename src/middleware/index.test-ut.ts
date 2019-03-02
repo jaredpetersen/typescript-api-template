@@ -1,17 +1,12 @@
 'use strict';
 
-// Have to hoist the module mocks due to a bug in ts-jest
-// Would normally never, ever mock logging since it tightly couples tests to implementation
-// with little gain. However, we do so here since we want to show how to test our middleware.
-jest.mock('../logger');
-
 import * as middleware from './index';
 import { Request, Response, NextFunction } from 'express';
 import logger from '../logger';
 
-describe('Middleware - UT', () => {
+jest.mock('../logger');
 
-  // TODO look at restoring mocks between tests
+describe('Middleware - UT', () => {
 
   describe('doSomethingInteresting()', () => {
 
@@ -30,6 +25,7 @@ describe('Middleware - UT', () => {
 
       expect(logger.log).toHaveBeenCalledWith('info', 'interesting middleware');
     });
+
   });
 
 });

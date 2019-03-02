@@ -14,7 +14,7 @@ export class HttpError {
 }
 
 // Handle any errors that come up
-export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+export const errorMiddleware = (err: any, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof HttpError) {
     res.status(err.status).json({ 'message': err.message });
   }
@@ -24,6 +24,6 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
 };
 
 // Handle case where user requests nonexistent endpoint
-export const nullRoute = (req: Request, res: Response, next: NextFunction) => {
+export const nullMiddleware = (req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({ message: 'not found' });
 };

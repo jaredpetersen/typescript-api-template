@@ -19,6 +19,7 @@
   "jest": {
     "testEnvironment": "node",
     "preset": "ts-jest",
+    "restoreMocks": true,
     "testRegex": "(/__tests__/.*|(\\.|/)(test-ut|test-it))\\.[jt]sx?$",
     "collectCoverageFrom": [
       "src/**/*.{ts,js}",
