@@ -14,6 +14,7 @@
   "author": "Jared Petersen <jaredtoddpetersen@gmail.com> (https://github.com/jaredpetersen)",
   "license": "MIT",
   "jest": {
+    "rootDir": "src",
     "testEnvironment": "node",
     "preset": "ts-jest",
     "restoreMocks": true,
