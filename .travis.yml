@@ -6,3 +6,6 @@ install:
   - npm ci
   - npm run build
   - npm run coverage
+branches:
+  only:
+    master
