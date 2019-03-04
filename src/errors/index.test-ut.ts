@@ -18,23 +18,18 @@ describe('Errors - UT', () => {
 
   describe('errorMiddleware()', () => {
     test('returns an error message based on the passed in HttpError', () => {
-      // Stub err
       const errStub = new HttpError(418, 'teapot');
 
-      // Stub req
       const reqStub: Partial<Request> = {};
 
-      // Mock res
       const resMock: Partial<Response> = {};
       resMock.status = jest.fn().mockReturnValue(resMock);
       resMock.json = jest.fn().mockReturnValue(resMock);
 
-      // Stub next
       const nextStub: NextFunction = () => {
         // Do nothing
       };
 
-      // Run unit under test
       errorMiddleware(errStub, reqStub as Request, resMock as Response, nextStub);
 
       expect(resMock.status).toHaveBeenCalledWith(errStub.status);
@@ -42,23 +37,18 @@ describe('Errors - UT', () => {
     });
 
     test('returns an internal server error when passed a non-HttpError', () => {
-      // Stub err
       const errStub = new Error('something went wrong');
 
-      // Stub req
       const reqStub: Partial<Request> = {};
 
-      // Mock res
       const resMock: Partial<Response> = {};
       resMock.status = jest.fn().mockReturnValue(resMock);
       resMock.json = jest.fn().mockReturnValue(resMock);
 
-      // Stub next
       const nextStub: NextFunction = () => {
         // Do nothing
       };
 
-      // Run unit under test
       errorMiddleware(errStub, reqStub as Request, resMock as Response, nextStub);
 
       expect(resMock.status).toHaveBeenCalledWith(500);
@@ -68,20 +58,16 @@ describe('Errors - UT', () => {
 
   describe('nullMiddleware()', () => {
     test('returns a not found error message', () => {
-      // Stub req
       const reqStub: Partial<Request> = {};
 
-      // Mock res
       const resMock: Partial<Response> = {};
       resMock.status = jest.fn().mockReturnValue(resMock);
       resMock.json = jest.fn().mockReturnValue(resMock);
 
-      // Stub next
       const nextStub: NextFunction = () => {
         // Do nothing
       };
 
-      // Run unit under test
       nullMiddleware(reqStub as Request, resMock as Response, nextStub);
 
       expect(resMock.status).toHaveBeenCalledWith(404);
