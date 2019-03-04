@@ -1,9 +1,9 @@
 'use strict';
 
 import express from 'express';
-import routes from './routes';
 import morgan from 'morgan';
 import logger from './logger';
+import routes from './routes';
 
 const app = express();
 

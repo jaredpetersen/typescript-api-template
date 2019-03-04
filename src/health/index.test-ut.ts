@@ -1,30 +1,25 @@
 'use strict';
 
+import { NextFunction, Request, Response } from 'express';
 import * as health from './index';
-import { Request, Response, NextFunction } from 'express';
 
 describe('Health - UT', () => {
-
   describe('status()', () => {
-
     test('provides health status', () => {
-      // Stub req
       const reqStub: Partial<Request> = {};
 
-      // Mock res
       const resMock: Partial<Response> = {};
       resMock.status = jest.fn().mockReturnValue(resMock);
       resMock.json = jest.fn().mockReturnValue(resMock);
 
-      // Stub next
-      const nextStub: NextFunction = () => {};
+      const nextStub: NextFunction = () => {
+        // Do nothing
+      };
 
-      // Run unit under test
-      health.status(<Request>reqStub, <Response>resMock, nextStub);
+      health.status(reqStub as Request, resMock as Response, nextStub);
 
       expect(resMock.status).toHaveBeenCalledWith(200);
       expect(resMock.json).toHaveBeenCalledWith({ status: 'UP' });
     });
   });
-
 });

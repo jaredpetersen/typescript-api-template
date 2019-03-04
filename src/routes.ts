@@ -1,9 +1,9 @@
 'use strict';
 
 import { Router } from 'express';
-import * as middleware from './middleware';
 import * as errors from './errors';
 import healthRouter from './health/router';
+import * as middleware from './middleware';
 import taskRouter from './tasks/router';
 
 // Set up the router
