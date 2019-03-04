@@ -4,9 +4,7 @@ import request from 'supertest';
 import app from '../app';
 
 describe('Health - IT', () => {
-
   describe('status()', () => {
-
     test('provides health status', async () => {
       const result = await request(app).get('/health');
 
@@ -14,5 +12,4 @@ describe('Health - IT', () => {
       expect(result.body).toEqual({ status: 'UP' });
     });
   });
-
 });

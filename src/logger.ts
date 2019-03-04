@@ -8,16 +8,11 @@ const loggerFormat = winston.format.printf(({ level, message, timestamp }) => {
 });
 
 export const logger = winston.createLogger({
-  level: logLevel,
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    loggerFormat
-  ),
-  transports: [
-    new winston.transports.Console()
-  ],
   exitOnError: false,
-  silent
+  format: winston.format.combine(winston.format.timestamp(), loggerFormat),
+  level: logLevel,
+  silent,
+  transports: [new winston.transports.Console()]
 });
 
 export default logger;
