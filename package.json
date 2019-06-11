@@ -1,6 +1,6 @@
 {
   "name": "typescript-api-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple template for creating a TypeScript REST API",
   "private": true,
   "main": "./dist/server.js",
